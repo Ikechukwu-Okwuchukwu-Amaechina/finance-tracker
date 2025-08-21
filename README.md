@@ -85,3 +85,13 @@ Security middlewares applied: helmet, rate limiting, mongo sanitization, xss pro
 ## Author
 Ikechukwu Okwuchukwu Amaechina  
 
+## CI / CD
+
+This repository includes a GitHub Actions workflow at `.github/workflows/ci.yml` that runs tests on push and PR to `main`.
+
+If you provide a `RAILWAY_TOKEN` secret in the repository, the workflow will also attempt to deploy to Railway using the Railway CLI.
+
+To enable Railway deploys:
+- Add `RAILWAY_TOKEN` to GitHub Secrets (a Railway personal token)
+- Ensure the project is connected to a Railway project (you can run `railway init` locally then push)
+

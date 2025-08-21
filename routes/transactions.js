@@ -133,8 +133,9 @@ router.delete('/:id', auth, async function (req, res) {
     } else {
       user.balance = user.balance + tx.amount;
     }
-    await user.save();
-    await tx.remove();
+  await user.save();
+  // use deleteOne() on the document instead of deprecated remove()
+  await tx.deleteOne();
     return res.json({ message: 'Deleted' });
   } catch (err) {
     console.error(err);
